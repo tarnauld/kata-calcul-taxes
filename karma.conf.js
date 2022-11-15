@@ -25,6 +25,14 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
+      check: {
+        global: {
+          statements: 100,
+          branches: 100,
+          functions: 100,
+          lines: 100
+        },
+      },
       dir: require('path').join(__dirname, './coverage/kata-calcul-taxes'),
       subdir: '.',
       reporters: [
