@@ -1,5 +1,7 @@
 # KataCalculTaxes
 
+[![npm package](https://img.shields.io/github/package-json/v/tarnauld/kata-calcul-taxes)](https://github.com/tarnauld/kata-calcul-taxes) [![Node.js CI](https://github.com/tarnauld/kata-calcul-taxes/actions/workflows/nodejs-ci.yml/badge.svg)](https://github.com/tarnauld/kata-calcul-taxes/actions/workflows/nodejs-ci.yml)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
 ## Development server
