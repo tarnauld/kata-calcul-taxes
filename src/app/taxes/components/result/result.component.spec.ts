@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { Output } from "../../models";
+import { Output, Type } from "../../models";
 import { ResultComponent } from "./result.component";
 
 describe("ResultComponent", () => {
@@ -26,5 +26,16 @@ describe("ResultComponent", () => {
 
   it("should be created", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should compute total amount for input", () => {
+    const result = component.getAmountForInput({
+      description: "",
+      imported: false,
+      quantity: 2,
+      type: Type.FOOD,
+      unityPrice: 2
+    });
+    expect(result).toEqual(4);
   });
 });
