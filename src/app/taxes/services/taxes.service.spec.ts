@@ -15,6 +15,7 @@ describe("Taxes services", () => {
   describe("computeTaxeForInput", () => {
     it("should return 0", () => {
       const taxes = service.computeTaxeForInput({
+        description: "",
         imported: false,
         quantity: 3,
         type: Type.FOOD,
@@ -25,6 +26,7 @@ describe("Taxes services", () => {
 
     it("should return 1", () => {
       const taxes = service.computeTaxeForInput({
+        description: "",
         imported: true,
         quantity: 2,
         type: Type.FOOD,
@@ -33,18 +35,20 @@ describe("Taxes services", () => {
       expect(taxes).toEqual(1);
     });
 
-    it('should return 1.25', () => {
+    it("should return 1.25", () => {
       const taxes = service.computeTaxeForInput({
+        description: "",
         imported: false,
         quantity: 1,
         type: Type.BOOK,
         unityPrice: 12.49,
       });
-      expect(taxes).toEqual(1.25); 
+      expect(taxes).toEqual(1.25);
     });
 
     it("should return 2.5", () => {
       const taxes = service.computeTaxeForInput({
+        description: "",
         imported: false,
         quantity: 2,
         type: Type.BOOK,
@@ -55,6 +59,7 @@ describe("Taxes services", () => {
 
     it("should return 3", () => {
       const taxes = service.computeTaxeForInput({
+        description: "",
         imported: false,
         quantity: 1,
         type: Type.OTHER,
@@ -65,6 +70,7 @@ describe("Taxes services", () => {
 
     it("should return 35.65", () => {
       const taxes = service.computeTaxeForInput({
+        description: "",
         imported: true,
         quantity: 3,
         type: Type.OTHER,
@@ -97,6 +103,7 @@ describe("Taxes services", () => {
     it("should return 0", () => {
       const inputs = [
         {
+          description: "nothing",
           quantity: 0,
           unityPrice: 0,
           type: Type.BOOK,
@@ -114,18 +121,21 @@ describe("Taxes services", () => {
     it("should compute output #1", () => {
       const inputs: Array<Input> = [
         {
+          description: "livres",
           quantity: 2,
           type: Type.BOOK,
           unityPrice: 12.49,
           imported: false,
         },
         {
+          description: "CD musical",
           quantity: 1,
           type: Type.OTHER,
           unityPrice: 14.99,
           imported: false,
         },
         {
+          description: "barres de chocolat",
           quantity: 3,
           type: Type.FOOD,
           unityPrice: 0.85,
@@ -143,12 +153,14 @@ describe("Taxes services", () => {
     it("should display output #2", () => {
       const inputs: Array<Input> = [
         {
+          description: "boites de chocolats",
           quantity: 2,
           type: Type.FOOD,
           unityPrice: 10,
           imported: true,
         },
         {
+          description: "flacons de parfum",
           quantity: 3,
           type: Type.OTHER,
           unityPrice: 47.5,
@@ -166,24 +178,28 @@ describe("Taxes services", () => {
     it("should display output #3", () => {
       const inputs: Array<Input> = [
         {
+          description: "flacons de parfum",
           quantity: 2,
           type: Type.OTHER,
           unityPrice: 27.99,
           imported: true,
         },
         {
+          description: "flacon de parfum",
           quantity: 1,
           type: Type.OTHER,
           unityPrice: 18.99,
           imported: false,
         },
         {
+          description: "boîtes de pilules",
           quantity: 3,
           type: Type.MEDECINE,
           unityPrice: 9.75,
           imported: false,
         },
         {
+          description: "boîtes de chocolat",
           quantity: 2,
           type: Type.FOOD,
           unityPrice: 11.25,

@@ -8,5 +8,5 @@ import { Input as DataInputs} from '../../models';
 })
 export class FormComponent {
   @Input('datas') datas: Array<DataInputs> = [];
-  displayedColumns: string[] = ['quantity', 'unityPrice', 'type', 'imported'];
+  displayedColumns: string[] = ['description', 'quantity', 'unityPrice', 'type', 'imported'];
 }
