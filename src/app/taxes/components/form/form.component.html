@@ -2,7 +2,7 @@
 
 <mat-divider class="margin-30"></mat-divider>
 
-<table mat-table [dataSource]="datas">
+<table mat-table [dataSource]="datas!">
   <ng-container matColumnDef="description">
     <th mat-header-cell *matHeaderCellDef>Description</th>
     <td mat-cell *matCellDef="let element">{{ element | description }}</td>
@@ -27,7 +27,7 @@
     <th mat-header-cell *matHeaderCellDef>Importé</th>
     <td mat-cell *matCellDef="let element">
       <mat-checkbox
-        [disabled]="true"
+        [disabled]="!custom"
         [checked]="element.imported"
       ></mat-checkbox>
     </td>
@@ -37,12 +37,20 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<div class="flex-centered margin-30">
+<div class="flex-centered margin-30 spaced-around">
+  <button
+    *ngIf="custom"
+    mat-raised-button
+    (click)="addField()"
+    color="secondary"
+  >
+    Ajouter un champ
+  </button>
   <button
     mat-raised-button
     (click)="openDialog('1000ms', '500ms')"
     color="primary"
   >
-    Compute
+    Calculer
   </button>
 </div>
