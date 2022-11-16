@@ -1,8 +1,6 @@
-import { ChangeDetectorRef, Type } from "@angular/core";
+import { ChangeDetectorRef } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { MatDialog, MatDialogModule } from "@angular/material/dialog";
-import { MatDividerModule } from "@angular/material/divider";
-import { MatTableModule } from "@angular/material/table";
+import { MatDialog } from "@angular/material/dialog";
 import { materialModules } from "src/app/angular-material";
 import { DescriptionPipe } from "../../pipes/description.pipe";
 import { TypePipe } from "../../pipes/type.pipe";
