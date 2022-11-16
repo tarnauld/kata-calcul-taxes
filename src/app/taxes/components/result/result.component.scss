@@ -1,0 +1,19 @@
+.full-width {
+  width: 100%;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.button-close {
+  position: absolute;
+  bottom: 0;
+}
+
+table {
+  margin-top: 30px;
+}

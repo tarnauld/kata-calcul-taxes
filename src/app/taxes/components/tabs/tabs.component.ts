@@ -10,19 +10,19 @@ import { input1, input2, input3 } from "./templates";
 export class TabsComponent {
   tabs = [
     {
-      title: "Input #1",
+      title: "Commande #1",
       datas: input1,
     },
     {
-      title: "Input #2",
+      title: "Commande #2",
       datas: input2,
     },
     {
-      title: "Input #3",
+      title: "Commande #3",
       datas: input3,
     },
     {
-      title: "Custom",
+      title: "Personnalisé",
       datas: [] as Array<Input>,
     },
   ];
