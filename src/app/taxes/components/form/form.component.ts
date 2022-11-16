@@ -41,6 +41,10 @@ export class FormComponent implements OnInit {
     this.custom = this.datas?.length === 0;
   }
 
+  updateField(e: any, el: any, field: string) {
+    el[field] = e.srcElement.value;
+  }
+
   openDialog(
     enterAnimationDuration: string,
     exitAnimationDuration: string

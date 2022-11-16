@@ -1,8 +1,9 @@
-import { ChangeDetectorRef } from "@angular/core";
+import { ChangeDetectorRef, Type } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { MatDialog, MatDialogModule } from "@angular/material/dialog";
 import { MatDividerModule } from "@angular/material/divider";
-import { MatTable, MatTableModule } from "@angular/material/table";
+import { MatTableModule } from "@angular/material/table";
+import { materialModules } from "src/app/angular-material";
 import { DescriptionPipe } from "../../pipes/description.pipe";
 import { TypePipe } from "../../pipes/type.pipe";
 import { ResultComponent } from "../result/result.component";
@@ -22,7 +23,7 @@ describe("FormComponent", () => {
   beforeAll(() => {
     TestBed.configureTestingModule({
       declarations: [FormComponent, ResultComponent, DescriptionPipe, TypePipe],
-      imports: [MatDividerModule, MatDialogModule, MatTableModule],
+      imports: [materialModules],
       providers: [
         { provide: MatDialog, useValue: mock },
         { provide: ChangeDetectorRef, useValue: ref },
@@ -49,6 +50,19 @@ describe("FormComponent", () => {
   it("should open dialog", () => {
     component.openDialog("", "");
     expect(mock.open).toHaveBeenCalled();
+  });
+
+  it('should update field', () => {
+    component.datas = [{
+      description: '',
+      imported: false,
+      quantity: 0,
+      type: 0,
+      unityPrice: 2
+    }];
+
+    component.updateField({srcElement: {value: ''}}, component.datas[0], 'description');
+    expect(component.datas[0].description).toEqual('');
   });
 
   it("should add fields", () => {
