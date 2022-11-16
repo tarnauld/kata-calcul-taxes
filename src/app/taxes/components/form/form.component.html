@@ -3,24 +3,77 @@
 <mat-divider class="margin-30"></mat-divider>
 
 <table mat-table [dataSource]="datas!">
-  <ng-container matColumnDef="description">
+  <ng-container matColumnDef="description" [ngSwitch]="custom">
     <th mat-header-cell *matHeaderCellDef>Description</th>
-    <td mat-cell *matCellDef="let element">{{ element | description }}</td>
+    <ng-container *ngSwitchCase="false">
+      <td mat-cell *matCellDef="let element">
+        {{ element | description }}
+      </td>
+    </ng-container>
+    <ng-container *ngSwitchCase="true">
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+    </ng-container>
   </ng-container>
 
-  <ng-container matColumnDef="quantity">
+  <ng-container matColumnDef="quantity" [ngSwitch]="custom">
     <th mat-header-cell *matHeaderCellDef>Quantité</th>
-    <td mat-cell *matCellDef="let element">{{ element.quantity }}</td>
+    <ng-container *ngSwitchCase="false">
+      <td mat-cell *matCellDef="let element">
+        {{ element.quantity }}
+      </td>
+    </ng-container>
+    <ng-container *ngSwitchCase="true">
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field appearance="fill">
+          <mat-label>Quantité</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+    </ng-container>
   </ng-container>
 
-  <ng-container matColumnDef="unityPrice">
+  <ng-container matColumnDef="unityPrice" [ngSwitch]="custom">
     <th mat-header-cell *matHeaderCellDef>Prix à l'unité</th>
-    <td mat-cell *matCellDef="let element">{{ element.unityPrice }}€</td>
+    <ng-container *ngSwitchCase="false">
+      <td mat-cell *matCellDef="let element">
+        {{ element.unityPrice }}
+      </td>
+    </ng-container>
+    <ng-container *ngSwitchCase="true">
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field appearance="fill">
+          <mat-label>Prix à l'unité</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </td>
+    </ng-container>
   </ng-container>
 
-  <ng-container matColumnDef="type">
+  <ng-container matColumnDef="type" [ngSwitch]="custom">
     <th mat-header-cell *matHeaderCellDef>Type</th>
-    <td mat-cell *matCellDef="let element">{{ element.type | type }}</td>
+    <ng-container *ngSwitchCase="false">
+      <td mat-cell *matCellDef="let element">
+        {{ element.type | type }}
+      </td>
+    </ng-container>
+    <ng-container *ngSwitchCase="true">
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field appearance="fill">
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option value="0">🍔: Nourriture</mat-option>
+            <mat-option value="1">💊: Médicament</mat-option>
+            <mat-option value="2">📕: Livre</mat-option>
+            <mat-option value="3">❓: Autre</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </ng-container>
   </ng-container>
 
   <ng-container matColumnDef="imported">
