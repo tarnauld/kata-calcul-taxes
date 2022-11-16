@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MatDividerModule } from "@angular/material/divider";
 import { FormComponent } from "./form.component";
 
 describe('FormComponent', () => {
@@ -7,7 +8,8 @@ describe('FormComponent', () => {
 
   beforeAll(() => {
     TestBed.configureTestingModule({
-      declarations: [FormComponent]
+      declarations: [FormComponent],
+      imports: [MatDividerModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormComponent);
