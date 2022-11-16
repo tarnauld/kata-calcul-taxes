@@ -11,7 +11,7 @@ export class TaxesService {
     return Math.round(a * 100) / 100;
   }
 
-  private nearest5Cents(n: number): number {
+  public nearest5Cents(n: number): number {
     return parseFloat((Math.ceil(n * 20) / 20).toFixed(2));
   }
 
@@ -23,7 +23,7 @@ export class TaxesService {
     );
   }
 
-  private computeTaxeForInput(input: Input): number {
+  public computeTaxeForInput(input: Input): number {
     let taxeForProduct = 0;
 
     switch (input.type) {
