@@ -55,7 +55,7 @@ export class TaxesService {
 
   public computeBill(inputs: Array<Input>): Output {
     const taxesAmount: number = this.computeTotalTaxes(inputs);
-    const totalAmount: number = this.computeTotalAmount(inputs, taxesAmount);
+    const totalAmount: number = this.nearest5Cents(this.computeTotalAmount(inputs, taxesAmount));
 
     return {
       inputs: inputs,

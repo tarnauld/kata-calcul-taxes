@@ -67,7 +67,7 @@ describe("Taxes services", () => {
       expect(service.computeBill(inputs)).toEqual({
         inputs: inputs,
         taxesAmount: 5.5,
-        totalAmount: 48.02,
+        totalAmount: 48.05,
       });
     });
 
@@ -131,7 +131,7 @@ describe("Taxes services", () => {
       expect(service.computeBill(inputs)).toEqual({
         inputs: inputs,
         taxesAmount: 18.95,
-        totalAmount: 145.67,
+        totalAmount: 145.7,
       });
     });
   });
