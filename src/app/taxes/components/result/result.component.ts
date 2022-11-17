@@ -20,6 +20,7 @@ export class ResultComponent {
   getAmountForInput(input: DataInput): number {
     return this.taxesService.nearest5Cents(
       input.unityPrice * input.quantity +
-      this.taxesService.computeTaxeForInput(input));
+        this.taxesService.computeTaxeForInput(input)
+    );
   }
 }
