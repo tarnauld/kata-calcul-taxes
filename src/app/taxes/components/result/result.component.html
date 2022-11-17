@@ -1,13 +1,15 @@
 <div class="result-container">
   <h1 mat-dialog-title>Facture générée</h1>
   <div mat-dialog-content class="full-width">
-    Veuillez trouver ci-dessous le détail de la facture générée:
+    Veuillez trouver ci-dessous le détail de la facture générée :
     <table class="mat-table full-width">
       <th class="mat-header-cell">Description</th>
       <th class="mat-header-cell">Total</th>
       <tbody role="rowgroup">
         <tr class="mat-row" *ngFor="let input of datas.inputs">
-          <td class="mat-cell">{{ input | description }} à {{ input.unityPrice }}€</td>
+          <td class="mat-cell">
+            {{ input | description }} à {{ input.unityPrice }}€
+          </td>
           <td class="mat-cell">{{ getAmountForInput(input) }}€</td>
         </tr>
         <tr class="mat-row">
