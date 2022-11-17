@@ -2,30 +2,20 @@
   <h1 mat-dialog-title>Facture générée</h1>
   <div mat-dialog-content class="full-width">
     Veuillez trouver ci-dessous le détail de la facture générée:
-    <table mat-table [dataSource]="datas.inputs" class="full-width">
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Description</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element | description }} à {{ element.unityPrice }}€
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="total">
-        <th mat-header-cell *matHeaderCellDef>Total</th>
-        <td mat-cell *matCellDef="let element">{{ getAmountForInput(element) }}€</td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-    <table class="no-margin full-width">
+    <table class="mat-table full-width">
+      <th class="mat-header-cell">Description</th>
+      <th class="mat-header-cell">Total</th>
       <tbody role="rowgroup">
+        <tr class="mat-row" *ngFor="let input of datas.inputs">
+          <td class="mat-cell">{{ input | description }} à {{ input.unityPrice }}€</td>
+          <td class="mat-cell">{{ getAmountForInput(input) }}€</td>
+        </tr>
         <tr class="mat-row">
-          <td class="mat-cell bold width-77">Montant des taxes :</td>
+          <td class="mat-cell bold">Montant des taxes :</td>
           <td class="mat-cell bold">{{ datas.taxesAmount }}€</td>
         </tr>
         <tr class="mat-row">
-          <td class="mat-cell bold width-77">Total:</td>
+          <td class="mat-cell bold">Total:</td>
           <td class="mat-cell bold">{{ datas.totalAmount }}€</td>
         </tr>
       </tbody>
