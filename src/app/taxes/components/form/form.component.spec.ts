@@ -1,6 +1,7 @@
 import { ChangeDetectorRef } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { MatDialog } from "@angular/material/dialog";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { materialModules } from "src/app/angular-material";
 import { DescriptionPipe } from "../../pipes/description.pipe";
 import { TypePipe } from "../../pipes/type.pipe";
@@ -21,7 +22,7 @@ describe("FormComponent", () => {
   beforeAll(() => {
     TestBed.configureTestingModule({
       declarations: [FormComponent, ResultComponent, DescriptionPipe, TypePipe],
-      imports: [materialModules],
+      imports: [materialModules, BrowserAnimationsModule],
       providers: [
         { provide: MatDialog, useValue: mock },
         { provide: ChangeDetectorRef, useValue: ref },
