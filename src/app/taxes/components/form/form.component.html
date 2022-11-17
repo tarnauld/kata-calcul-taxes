@@ -78,16 +78,16 @@
     <ng-container *ngSwitchCase="true">
       <td mat-cell *matCellDef="let element">
         <mat-form-field>
-          <mat-label>Select</mat-label>
+          <mat-label>Type</mat-label>
           <mat-select>
             <mat-option value="0" (click)="element.type = 0"
-              >🍔: Nourriture</mat-option
+              >🍔 : Nourriture</mat-option
             >
             <mat-option value="1" (click)="element.type = 1"
-              >💊: Médicament</mat-option
+              >💊 : Médicament</mat-option
             >
             <mat-option value="2" (click)="element.type = 2"
-              >📕: Livre</mat-option
+              >📕 : Livre</mat-option
             >
             <mat-option value="3" (click)="element.type = 3"
               >❓: Autre</mat-option
